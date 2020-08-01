@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="雲端之上" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="之前写过一篇《搭建自己的直播服务器(nginx + RTMP)》，后来发现一个更简单的直播服务器SRS(Simple-RTMP-Server)，还是国人开发维护的，了解一下之后发现，还支持在Raspberry Pi上跑起来。想起我那尘封的Raspberry Pi，我就打算用它做成一个内网的直播服务器，这样就不用经常在PC上开启一个CentOS 7 虚拟机。 123456搭建环境：主机：Raspbe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在树莓派(Raspberry Pi)上运行SRS(Simple-RTMP-Server)">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/index.html">
+<meta property="og:site_name" content="雲端之上">
+<meta property="og:description" content="之前写过一篇《搭建自己的直播服务器(nginx + RTMP)》，后来发现一个更简单的直播服务器SRS(Simple-RTMP-Server)，还是国人开发维护的，了解一下之后发现，还支持在Raspberry Pi上跑起来。想起我那尘封的Raspberry Pi，我就打算用它做成一个内网的直播服务器，这样就不用经常在PC上开启一个CentOS 7 虚拟机。 123456搭建环境：主机：Raspbe">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/163b057b697221d9.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/163b05dbc3c8a4e4.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/163b05c951c335bc.png">
+<meta property="article:published_time" content="2018-05-30T12:53:14.000Z">
+<meta property="article:modified_time" content="2020-03-13T02:55:25.608Z">
+<meta property="article:author" content="CoderSamz">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/163b057b697221d9.png">
+
+<link rel="canonical" href="http://yoursite.com/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>在树莓派(Raspberry Pi)上运行SRS(Simple-RTMP-Server) | 雲端之上</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">雲端之上</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="CoderSamz">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雲端之上">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在树莓派(Raspberry Pi)上运行SRS(Simple-RTMP-Server)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-30 20:53:14" itemprop="dateCreated datePublished" datetime="2018-05-30T20:53:14+08:00">2018-05-30</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>之前写过一篇<a href="https://codersamz.github.io/2018/03/28/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9B%B4%E6%92%AD%E6%9C%8D%E5%8A%A1%E5%99%A8(nginx%20+%20RTMP)/" target="_blank" rel="noopener">《搭建自己的直播服务器(nginx + RTMP)》</a>，后来发现一个更简单的直播服务器<a href="https://github.com/ossrs/srs" target="_blank" rel="noopener">SRS(Simple-RTMP-Server)</a>，还是国人开发维护的，了解一下之后发现，还支持在Raspberry Pi上跑起来。想起我那尘封的Raspberry Pi，我就打算用它做成一个内网的直播服务器，这样就不用经常在PC上开启一个CentOS 7 虚拟机。</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">搭建环境：</span><br><span class="line">主机：Raspberry Pi B型（第一代国产红版）</span><br><span class="line">系统：2015-05-05-raspbian-wheezy</span><br><span class="line">直播服务器：SRS 2.0</span><br><span class="line">直播软件(推流)：OBS Studio</span><br><span class="line">播放软件(拉流)：VLC</span><br></pre></td></tr></table></figure>
+
+<p>附上raspbian各个版本的下载列表<a href="https://downloads.raspberrypi.org/raspbian/images/" target="_blank" rel="noopener">https://downloads.raspberrypi.org/raspbian/images/</a></p>
+<p>注意：如果Raspberry Pi 硬件型号和我的是一样的，建议用wheezy，不要用最新版本的，之前心想既然打开尘封的Raspberry Pi，那就跑些新东西吧，装上最新系统后，结果折腾了两天SRS2.0 怎么也跑不起来，或许版本兼容问题。</p>
+<a id="more"></a>
+
+<h3 id="开始前需要一些准备"><a href="#开始前需要一些准备" class="headerlink" title="开始前需要一些准备"></a>开始前需要一些准备</h3><h4 id="切换源"><a href="#切换源" class="headerlink" title="切换源"></a>切换源</h4><p>将Raspberry Pi 的软件源切换为国内，加速软件下载<br>在Raspberry Pi的国内源中，我推荐中科大的</p>
+<p>先备份一下文件</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/backup_sources.list</span><br></pre></td></tr></table></figure>
+
+<p>然后修改文件</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>用什么编辑器，看个人习惯了</p>
+<p>将文件内容删除或者全注释，换成以下内容（这里以wheezy为例，新版的可以看参考里的中科大帮助文档）</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/raspbian/raspbian/ wheezy main contrib non-free rpi</span><br></pre></td></tr></table></figure>
+
+<p>同时还可以修改另外一个软件源，虽然不是必要的，但是还是修改吧</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先备份</span></span><br><span class="line">sudo cp /etc/apt/sources.list.d/raspi.list /etc/apt/sources.list.d/raspi.list.backup</span><br><span class="line"><span class="comment"># 再修改</span></span><br><span class="line">sudo nano /etc/apt/sources.list.d/raspi.list</span><br></pre></td></tr></table></figure>
+
+<p>将文件内容删除或者全注释，换成以下内容（这里以wheezy为例）</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ wheezy main</span><br><span class="line">deb-src http://mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/ wheezy main</span><br></pre></td></tr></table></figure>
+
+<p>修改保存后执行<code>sudo apt-get update</code>和<code>sudo aptitude update</code>,进行更新</p>
+<h4 id="安装需要的工具"><a href="#安装需要的工具" class="headerlink" title="安装需要的工具"></a>安装需要的工具</h4><p>更新后就要安装需要的工具，Raspberry Pi本身就包含编译SRS的大部分工具了，这里需要两个打包工具</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo aptitude install lsb_release</span><br><span class="line">sudo aptitude install zip</span><br></pre></td></tr></table></figure>
+
+<p><code>zip</code>好像自带了，<code>lsb_release</code>可能需要更新几次才能安装成功。这两个都是后续编译打包SRS需要的。</p>
+<blockquote>
+<p>如果试了几次<code>sudo aptitude install lsb_release</code>都安装不了可以试试这样<br>1.<code>apt-cache search lsb</code>搜索一下<br>2.<code>sudo apt-get install lsb-release</code>尝试通过APT安装。</p>
+</blockquote>
+<h3 id="SRS的编译与打包"><a href="#SRS的编译与打包" class="headerlink" title="SRS的编译与打包"></a>SRS的编译与打包</h3><h4 id="下载SRS源码"><a href="#下载SRS源码" class="headerlink" title="下载SRS源码"></a>下载SRS源码</h4><p>通过git将SRS下载到Raspberry Pi上</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ossrs/srs.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="开始编译SRS"><a href="#开始编译SRS" class="headerlink" title="开始编译SRS"></a>开始编译SRS</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入trunk文件夹</span></span><br><span class="line"><span class="built_in">cd</span> srs/trunk</span><br><span class="line"><span class="comment"># 编译并打包SRS</span></span><br><span class="line">./scripts/package.sh --pi</span><br></pre></td></tr></table></figure>
+
+<p>由于Raspberry Pi的硬件性能，所以编译的时间会比较漫长。</p>
+<p><code>package.sh</code>包含了编译和打包两个操作</p>
+<p>如果不想打包编译，也可以只编译</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译SRS</span></span><br><span class="line">./configure --pi &amp;&amp; make</span><br><span class="line"><span class="comment"># 运行SRS</span></span><br><span class="line">./objs/srs -c conf/srs.conf</span><br></pre></td></tr></table></figure>
+
+<h4 id="解包安装"><a href="#解包安装" class="headerlink" title="解包安装"></a>解包安装</h4><p>生成的包位置：<code>srs/trunk/objs/SRS-RaspberryPi7-armv6l-2.0.243.zip</code></p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install: 方法</span></span><br><span class="line">unzip -q SRS-RaspberryPi7-armv6l-2.0.243.zip</span><br><span class="line"><span class="built_in">cd</span> SRS-RaspberryPi7-armv6l-2.0.243</span><br><span class="line">sudo bash INSTALL</span><br></pre></td></tr></table></figure>
+
+<h4 id="SRS的运行"><a href="#SRS的运行" class="headerlink" title="SRS的运行"></a>SRS的运行</h4><p>安装好后可以通过以下方式运行SRS</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># srs的命令 /etc/init.d/srs &#123;start|stop|status|restart|reload&#125;</span></span><br><span class="line"><span class="comment"># 启动SRS</span></span><br><span class="line">sudo /etc/init.d/srs start</span><br><span class="line"><span class="comment"># 停止SRS</span></span><br><span class="line">sudo /etc/init.d/srs stop</span><br></pre></td></tr></table></figure>
+
+<h4 id="SRS-配置"><a href="#SRS-配置" class="headerlink" title="SRS 配置"></a>SRS 配置</h4><p>如果只是编译源码而不是打包，SRS的配置就像前面<code>./objs/srs -c conf/srs.conf</code>,通过指定不同的.conf 文件配置</p>
+<p>而如果像我这样，打包成二进制文件，那就通过修改<code>/etc/init.d/srs</code>中的<code>CONFIG</code>的值改变配置</p>
+<p>还可以修改<code>/usr/local/srs/conf/</code>里的<code>srs.conf</code>也可以修改</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## /etc/init.d/srs 中的部分内容</span></span><br><span class="line"><span class="comment"># the config of ROOT, user must modify it when start srs from other directory,</span></span><br><span class="line"><span class="comment"># it's ok to use the script by command ./etc/init.d/ossrs</span></span><br><span class="line">ROOT=<span class="string">"/usr/local/srs"</span></span><br><span class="line">APP=<span class="string">"./objs/srs"</span></span><br><span class="line">CONFIG=<span class="string">"./conf/srs.conf"</span></span><br><span class="line">DEFAULT_PID_FILE=<span class="string">'./objs/srs.pid'</span></span><br><span class="line">DEFAULT_LOG_FILE=<span class="string">'./objs/srs.log'</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="推流与拉流"><a href="#推流与拉流" class="headerlink" title="推流与拉流"></a>推流与拉流</h3><p>我采用OBS Studio进行推流，VLC 拉流测试</p>
+<h4 id="OBS-Studio-配置"><a href="#OBS-Studio-配置" class="headerlink" title="OBS Studio 配置"></a>OBS Studio 配置</h4><img src="/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/163b057b697221d9.png" class="">
+
+<p>我这里是采用内网进行直播的推流和拉流</p>
+<h4 id="VLC-拉流观看"><a href="#VLC-拉流观看" class="headerlink" title="VLC 拉流观看"></a>VLC 拉流观看</h4><p>通过VLC打开直播</p>
+<img src="/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/163b05dbc3c8a4e4.png" class="">
+
+<p>效果拉流效果</p>
+<img src="/2018/05/30/%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE(Raspberry%20Pi)%E4%B8%8A%E8%BF%90%E8%A1%8CSRS(Simple-RTMP-Server)/163b05c951c335bc.png" class="">
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/ossrs/srs/wiki/v1_CN_RaspberryPi" target="_blank" rel="noopener">Performance benchmark for SRS on RaspberryPi</a></p>
+<p><a href="https://github.com/ossrs/srs/wiki/v1_CN_SrsLinuxArm#raspberrypi" target="_blank" rel="noopener">SRS for linux-arm (RaspberryPi篇)</a></p>
+<p><a href="http://mirrors.ustc.edu.cn/help/raspbian.html" target="_blank" rel="noopener">中国科学技术大学Raspbian 源使用帮助</a></p>
+<p><a href="http://mirrors.ustc.edu.cn/help/archive.raspberrypi.org.html" target="_blank" rel="noopener">中国科学技术大学另一个Raspberry Pi 源使用帮助</a></p>
+<p><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=19378" target="_blank" rel="noopener">lsb_release - Raspberry Pi Forums</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/28/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9B%B4%E6%92%AD%E6%9C%8D%E5%8A%A1%E5%99%A8(nginx%20+%20RTMP)/" rel="prev" title="搭建自己的直播服务器(nginx + RTMP)">
+      <i class="fa fa-chevron-left"></i> 搭建自己的直播服务器(nginx + RTMP)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/03/10/iOS%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%AE%B0/" rel="next" title="iOS学习杂记">
+      iOS学习杂记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开始前需要一些准备"><span class="nav-number">1.</span> <span class="nav-text">开始前需要一些准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切换源"><span class="nav-number">1.1.</span> <span class="nav-text">切换源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装需要的工具"><span class="nav-number">1.2.</span> <span class="nav-text">安装需要的工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SRS的编译与打包"><span class="nav-number">2.</span> <span class="nav-text">SRS的编译与打包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载SRS源码"><span class="nav-number">2.1.</span> <span class="nav-text">下载SRS源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始编译SRS"><span class="nav-number">2.2.</span> <span class="nav-text">开始编译SRS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解包安装"><span class="nav-number">2.3.</span> <span class="nav-text">解包安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SRS的运行"><span class="nav-number">2.4.</span> <span class="nav-text">SRS的运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SRS-配置"><span class="nav-number">2.5.</span> <span class="nav-text">SRS 配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推流与拉流"><span class="nav-number">3.</span> <span class="nav-text">推流与拉流</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OBS-Studio-配置"><span class="nav-number">3.1.</span> <span class="nav-text">OBS Studio 配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VLC-拉流观看"><span class="nav-number">3.2.</span> <span class="nav-text">VLC 拉流观看</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number"></span> <span class="nav-text">参考</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">CoderSamz</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="fa fa-fw fa-address-card-o"></i>掘金</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle-o"></i>关于我</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderSamz</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
