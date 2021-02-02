@@ -4,48 +4,21 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="雲端之上" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="之前自己写了一个扫描二维码Demo，本来在iPhone上跑，最近用iPad也跑一下，发现了一点问题，毕竟自己没开发过iPad App，经过一番折腾，发现了原来摄像头的方向和屏幕的方向是分开的。 iPad上的方向配置一般情况下，我们会在项目配置里勾选支持的方向，但是如果选择了Universal，就要留意一下info.plist文件里的配置，iPhone 和 iPad 是分开配置的     摄像头方向">
 <meta property="og:type" content="article">
@@ -69,10 +42,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -115,17 +87,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">雲端之上</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -133,30 +94,48 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">雲端之上</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -172,14 +151,13 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/iOS%E6%91%84%E5%83%8F%E5%A4%B4%E6%96%B9%E5%90%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -199,7 +177,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -232,12 +210,11 @@
 
 <h3 id="摄像头方向"><a href="#摄像头方向" class="headerlink" title="摄像头方向"></a>摄像头方向</h3><p>由于自己不熟悉iPad配置，而且我的iPad锁定了横屏，导致我的扫描二维码Demo里摄像头方向不对，这时候我才发现，原来屏幕方向和摄像头方向其实是分开的</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/* 一般扫描二维码的代码 (iOS7之后的)*/</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 创建AVCaptureSession</span></span><br><span class="line"><span class="built_in">AVCaptureSession</span> *captureSession = [[<span class="built_in">AVCaptureSession</span> alloc] init];</span><br><span class="line"><span class="keyword">self</span>.session = captureSession;</span><br><span class="line"><span class="comment">// 配置输入设备</span></span><br><span class="line"><span class="built_in">AVCaptureDevice</span> *captureDevice = [<span class="built_in">AVCaptureDevice</span> defaultDeviceWithMediaType:<span class="built_in">AVMediaTypeVideo</span>];</span><br><span class="line"><span class="built_in">AVCaptureDeviceInput</span> *inputDevice = [<span class="built_in">AVCaptureDeviceInput</span> deviceInputWithDevice:captureDevice error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">[captureSession addInput:inputDevice];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 配置输出模式</span></span><br><span class="line"><span class="built_in">AVCaptureMetadataOutput</span> *captureOutput = [[<span class="built_in">AVCaptureMetadataOutput</span> alloc] init];</span><br><span class="line">[captureOutput setMetadataObjectsDelegate:<span class="keyword">self</span> queue:dispatch_get_main_queue()];</span><br><span class="line">[captureSession addOutput:captureOutput];</span><br><span class="line">[captureOutput setMetadataObjectTypes:@[<span class="built_in">AVMetadataObjectTypeQRCode</span>]];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 添加显示内容的layer</span></span><br><span class="line"><span class="keyword">self</span>.previewLayer = [[<span class="built_in">AVCaptureVideoPreviewLayer</span> alloc] initWithSession:captureSession];</span><br><span class="line"><span class="keyword">self</span>.previewLayer.videoGravity = <span class="built_in">AVLayerVideoGravityResizeAspectFill</span>;</span><br><span class="line"><span class="keyword">self</span>.previewLayer.frame = <span class="keyword">self</span>.view.bounds;</span><br><span class="line">[<span class="keyword">self</span>.view.layer addSublayer:<span class="keyword">self</span>.previewLayer];</span><br></pre></td></tr></table></figure>
-
 <p>弄好扫描代码后，就可以设置摄像头方向了</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 该部分代码整理自互联网 */</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">AVCaptureConnection</span> *previewLayerConnection = <span class="keyword">self</span>.previewLayer.connection;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获得当前屏幕方向</span></span><br><span class="line">    <span class="built_in">UIInterfaceOrientation</span> interfaceOrientation = [<span class="built_in">UIApplication</span> sharedApplication].statusBarOrientation;</span><br><span class="line"><span class="comment">// 判断是否允许设置</span></span><br><span class="line">    <span class="keyword">if</span> ([previewLayerConnection isVideoOrientationSupported]) &#123;</span><br><span class="line">        <span class="comment">// 根据当前屏幕方向来设置摄像头方向</span></span><br><span class="line">        <span class="keyword">switch</span> (interfaceOrientation) &#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="built_in">UIInterfaceOrientationPortrait</span>:</span><br><span class="line">                [previewLayerConnection setVideoOrientation:<span class="built_in">AVCaptureVideoOrientationPortrait</span>];</span><br><span class="line">                <span class="comment">//竖屏，Home键在底部</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="built_in">UIInterfaceOrientationLandscapeRight</span>:</span><br><span class="line">                [previewLayerConnection setVideoOrientation:<span class="built_in">AVCaptureVideoOrientationLandscapeRight</span>]; </span><br><span class="line">                <span class="comment">//横屏，Home键在右边 </span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> <span class="built_in">UIInterfaceOrientationLandscapeLeft</span>:</span><br><span class="line">                [previewLayerConnection setVideoOrientation:<span class="built_in">AVCaptureVideoOrientationLandscapeLeft</span>]; </span><br><span class="line">                <span class="comment">//横屏，Home键在左边 </span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                [previewLayerConnection setVideoOrientation:<span class="built_in">AVCaptureVideoOrientationPortrait</span>]; </span><br><span class="line">                <span class="comment">//其他方向都设置成竖屏</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>经过一番配置，摄像头的方向终于和屏幕方向一致了。</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a><em>参考</em></h3><p><a href="https://stackoverflow.com/questions/14811641/ios-camera-orientation" target="_blank" rel="noopener">iphone - iOS: camera orientation - Stack Overflow</a></p>
-<p><a href="https://www.jianshu.com/p/531b7eed7e4b" target="_blank" rel="noopener">iOS 获取屏幕方向，和强制屏幕旋转</a></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a><em>参考</em></h3><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/14811641/ios-camera-orientation">iphone - iOS: camera orientation - Stack Overflow</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/531b7eed7e4b">iOS 获取屏幕方向，和强制屏幕旋转</a></p>
 
     </div>
 
@@ -268,11 +245,32 @@
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -297,7 +295,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iPad上的方向配置"><span class="nav-number">1.</span> <span class="nav-text">iPad上的方向配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#摄像头方向"><span class="nav-number">2.</span> <span class="nav-text">摄像头方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iPad%E4%B8%8A%E7%9A%84%E6%96%B9%E5%90%91%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">iPad上的方向配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%91%84%E5%83%8F%E5%A4%B4%E6%96%B9%E5%90%91"><span class="nav-number">2.</span> <span class="nav-text">摄像头方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -317,17 +315,12 @@
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="fa fa-fw fa-address-card-o"></i>掘金</a>
+        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="far fa-address-card fa-fw"></i>掘金</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle-o"></i>关于我</a>
+        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="far fa-user-circle fa-fw"></i>关于我</a>
       </span>
   </div>
 
@@ -347,19 +340,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CoderSamz</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
         
@@ -391,7 +383,6 @@
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -415,7 +406,6 @@
 
 
   
-
 
 
 

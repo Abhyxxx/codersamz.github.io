@@ -4,55 +4,28 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="雲端之上" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-  <meta name="description" content="云耀之旅双十一购入一台HECS云耀云服务器玩一下 12# 规格：1核2G 云耀服务器# 系统：CentOS 7.6 64bit  安装配置nginx1. 安装nginx123456## 通过yum 直接安装nginxyum -y install nginx## 查看nginx版本nginx -v&#x3D;&#x3D;&#x3D;显示&#x3D;&#x3D;&#x3D; nginx version: nginx&#x2F;1.16.1  2. 配置nginx">
+  <meta name="description" content="云耀之旅双十一购入一台HECS云耀云服务器玩一下 12# 规格：1核2G 云耀服务器# 系统：CentOS 7.6 64bit 安装配置nginx1. 安装nginx123456## 通过yum 直接安装nginxyum -y install nginx## 查看nginx版本nginx -v&#x3D;&#x3D;&#x3D;显示&#x3D;&#x3D;&#x3D; nginx version: nginx&#x2F;1.16.1 2. 配置nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="云耀之旅">
 <meta property="og:url" content="http://yoursite.com/2020/11/18/%E4%BA%91%E8%80%80%E4%B9%8B%E6%97%85/index.html">
 <meta property="og:site_name" content="雲端之上">
-<meta property="og:description" content="云耀之旅双十一购入一台HECS云耀云服务器玩一下 12# 规格：1核2G 云耀服务器# 系统：CentOS 7.6 64bit  安装配置nginx1. 安装nginx123456## 通过yum 直接安装nginxyum -y install nginx## 查看nginx版本nginx -v&#x3D;&#x3D;&#x3D;显示&#x3D;&#x3D;&#x3D; nginx version: nginx&#x2F;1.16.1  2. 配置nginx">
+<meta property="og:description" content="云耀之旅双十一购入一台HECS云耀云服务器玩一下 12# 规格：1核2G 云耀服务器# 系统：CentOS 7.6 64bit 安装配置nginx1. 安装nginx123456## 通过yum 直接安装nginxyum -y install nginx## 查看nginx版本nginx -v&#x3D;&#x3D;&#x3D;显示&#x3D;&#x3D;&#x3D; nginx version: nginx&#x2F;1.16.1 2. 配置nginx">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-18T05:33:56.000Z">
 <meta property="article:modified_time" content="2020-11-18T05:35:56.245Z">
@@ -66,10 +39,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -112,17 +84,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">雲端之上</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -130,30 +91,48 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">雲端之上</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -169,14 +148,13 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/18/%E4%BA%91%E8%80%80%E4%B9%8B%E6%97%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -196,7 +174,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -223,27 +201,21 @@
       
         <h2 id="云耀之旅"><a href="#云耀之旅" class="headerlink" title="云耀之旅"></a>云耀之旅</h2><p>双十一购入一台HECS云耀云服务器玩一下</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 规格：1核2G 云耀服务器</span></span><br><span class="line"><span class="comment"># 系统：CentOS 7.6 64bit</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="安装配置nginx"><a href="#安装配置nginx" class="headerlink" title="安装配置nginx"></a>安装配置nginx</h4><h4 id="1-安装nginx"><a href="#1-安装nginx" class="headerlink" title="1. 安装nginx"></a>1. 安装nginx</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 通过yum 直接安装nginx</span></span><br><span class="line">yum -y install nginx</span><br><span class="line"><span class="comment">## 查看nginx版本</span></span><br><span class="line">nginx -v</span><br><span class="line">===显示=== </span><br><span class="line">nginx version: nginx/1.16.1</span><br></pre></td></tr></table></figure>
-
 <h4 id="2-配置nginx"><a href="#2-配置nginx" class="headerlink" title="2. 配置nginx"></a>2. 配置nginx</h4><a id="more"></a>
 <p>a. 创建一个用户用于web的管理</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 创建一个名为webserver的用户</span></span><br><span class="line">useradd webserver</span><br><span class="line"><span class="comment">## 修改用户密码</span></span><br><span class="line">passwd webserver</span><br><span class="line"><span class="comment">## 将用户添加到wheel用户组</span></span><br><span class="line">usermod -aG webserver</span><br><span class="line"><span class="comment">## 登录webserver，并创建html作为nginx的根目录</span></span><br><span class="line">su - webserver</span><br><span class="line">mkdir html</span><br></pre></td></tr></table></figure>
-
 <p>b. 配置nginx</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 查看nginx调用的配置文件路径</span></span><br><span class="line">sudo nginx -t</span><br><span class="line"><span class="comment">## 修改服务器根目录</span></span><br><span class="line">sudo vim /etc/nginx/nginx.conf</span><br><span class="line"><span class="comment">## 修改</span></span><br></pre></td></tr></table></figure>
-
 <p>修改<code>/etc/nginx/nginx.conf</code>文件里的<code>root  /usr/share/nginx/html;</code>，改成<code>root   /home/webserver/html;</code></p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reload nginx 使配置生效</span></span><br><span class="line">sudo service nginx reload</span><br></pre></td></tr></table></figure>
-
 <p><strong>注意</strong> ：这样配置好后，有可能出现<code>403 Forbidden</code>的情况，这时候是<code>SELinux</code>的配置，或者是<code>/home/webserver</code>的权限问题，<code>nginx</code>服务器的根目录需要所有父目录都有读和执行的权限。以我这里为例，新建用户的文件目录<code>/home/webserver</code>的权限只有700 ，所以会出现403。</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 修改权限</span></span><br><span class="line">chmod o+rx /home/webserver</span><br><span class="line">chmod o+rx /home/webserver/html</span><br></pre></td></tr></table></figure>
 
 
-
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://developer.aliyun.com/article/654598" target="_blank" rel="noopener">CentOS 7 - 创建新用户</a></p>
-<p><a href="https://www.cnblogs.com/chenzc/p/4461130.html" target="_blank" rel="noopener">nginx “403 Forbidden” 错误的原因及解决办法</a></p>
-<p><a href="https://support.huaweicloud.com/bestpractice-ecs/zh-cn_topic_0130142475.html#ZH-CN_TOPIC_0130142475__zh-cn_topic_0126152567_li64714441" target="_blank" rel="noopener">手工搭建LNMP环境（CentOS7.2 PHP7.0）</a></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/654598">CentOS 7 - 创建新用户</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenzc/p/4461130.html">nginx “403 Forbidden” 错误的原因及解决办法</a></p>
+<p><a target="_blank" rel="noopener" href="https://support.huaweicloud.com/bestpractice-ecs/zh-cn_topic_0130142475.html#ZH-CN_TOPIC_0130142475__zh-cn_topic_0126152567_li64714441">手工搭建LNMP环境（CentOS7.2 PHP7.0）</a></p>
 
     </div>
 
@@ -271,11 +243,32 @@
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -300,7 +293,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#云耀之旅"><span class="nav-number">1.</span> <span class="nav-text">云耀之旅</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装配置nginx"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装配置nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装nginx"><span class="nav-number">1.0.2.</span> <span class="nav-text">1. 安装nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-配置nginx"><span class="nav-number">1.0.3.</span> <span class="nav-text">2. 配置nginx</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">1.1.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E8%80%80%E4%B9%8B%E6%97%85"><span class="nav-number">1.</span> <span class="nav-text">云耀之旅</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEnginx"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装配置nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85nginx"><span class="nav-number">1.0.2.</span> <span class="nav-text">1. 安装nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AEnginx"><span class="nav-number">1.0.3.</span> <span class="nav-text">2. 配置nginx</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">1.1.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -320,17 +313,12 @@
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="fa fa-fw fa-address-card-o"></i>掘金</a>
+        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="far fa-address-card fa-fw"></i>掘金</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle-o"></i>关于我</a>
+        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="far fa-user-circle fa-fw"></i>关于我</a>
       </span>
   </div>
 
@@ -350,19 +338,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CoderSamz</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
         
@@ -394,7 +381,6 @@
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -418,7 +404,6 @@
 
 
   
-
 
 
 

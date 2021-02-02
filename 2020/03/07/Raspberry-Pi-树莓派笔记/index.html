@@ -4,55 +4,28 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="雲端之上" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
-  <meta name="description" content="1234环境：主机：Raspberry Pi B型（第一代国产红版）系统：2018-11-13-raspbian-stretch     (RaspberryPi-9 9.4 armv6l)   由于试了几个新版本，发现我的 USB网卡驱动有点问题，而且我的板子老了，所以选个旧点的系统  apt-get 配置国内镜像镜像列表: http:&#x2F;&#x2F;www.raspbian.org&#x2F;RaspbianMir">
+  <meta name="description" content="1234环境：主机：Raspberry Pi B型（第一代国产红版）系统：2018-11-13-raspbian-stretch     (RaspberryPi-9 9.4 armv6l)  由于试了几个新版本，发现我的 USB网卡驱动有点问题，而且我的板子老了，所以选个旧点的系统  apt-get 配置国内镜像镜像列表: http:&#x2F;&#x2F;www.raspbian.org&#x2F;RaspbianMirr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Raspberry Pi 树莓派笔记">
 <meta property="og:url" content="http://yoursite.com/2020/03/07/Raspberry-Pi-%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="雲端之上">
-<meta property="og:description" content="1234环境：主机：Raspberry Pi B型（第一代国产红版）系统：2018-11-13-raspbian-stretch     (RaspberryPi-9 9.4 armv6l)   由于试了几个新版本，发现我的 USB网卡驱动有点问题，而且我的板子老了，所以选个旧点的系统  apt-get 配置国内镜像镜像列表: http:&#x2F;&#x2F;www.raspbian.org&#x2F;RaspbianMir">
+<meta property="og:description" content="1234环境：主机：Raspberry Pi B型（第一代国产红版）系统：2018-11-13-raspbian-stretch     (RaspberryPi-9 9.4 armv6l)  由于试了几个新版本，发现我的 USB网卡驱动有点问题，而且我的板子老了，所以选个旧点的系统  apt-get 配置国内镜像镜像列表: http:&#x2F;&#x2F;www.raspbian.org&#x2F;RaspbianMirr">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/03/07/Raspberry-Pi-%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AC%94%E8%AE%B0/C904274F70E5DF36DBE5F38E6742349B.png">
 <meta property="og:image" content="http://yoursite.com/2020/03/07/Raspberry-Pi-%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AC%94%E8%AE%B0/F317DBA4944D8586149943BCBCE15DE7.png">
@@ -69,10 +42,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -115,17 +87,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">雲端之上</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -133,30 +94,48 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">雲端之上</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -172,14 +151,13 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Raspberry-Pi-%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -199,7 +177,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -225,29 +203,24 @@
 
       
         <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">环境：</span><br><span class="line">主机：Raspberry Pi B型（第一代国产红版）</span><br><span class="line">系统：2018-11-13-raspbian-stretch</span><br><span class="line">     (RaspberryPi-9 9.4 armv6l)</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>由于试了几个新版本，发现我的 USB网卡驱动有点问题，而且我的板子老了，所以选个旧点的系统</p>
 </blockquote>
-<h2 id="apt-get-配置国内镜像"><a href="#apt-get-配置国内镜像" class="headerlink" title="apt-get 配置国内镜像"></a>apt-get 配置国内镜像</h2><p>镜像列表: <a href="http://www.raspbian.org/RaspbianMirrors" target="_blank" rel="noopener">http://www.raspbian.org/RaspbianMirrors</a></p>
-<p>清华大学镜像使用说明：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/raspbian/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/raspbian/</a></p>
-<p>阿里云镜像使用说明：<a href="https://developer.aliyun.com/mirror/raspbian" target="_blank" rel="noopener">https://developer.aliyun.com/mirror/raspbian</a></p>
+<h2 id="apt-get-配置国内镜像"><a href="#apt-get-配置国内镜像" class="headerlink" title="apt-get 配置国内镜像"></a>apt-get 配置国内镜像</h2><p>镜像列表: <a target="_blank" rel="noopener" href="http://www.raspbian.org/RaspbianMirrors">http://www.raspbian.org/RaspbianMirrors</a></p>
+<p>清华大学镜像使用说明：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/raspbian/">https://mirrors.tuna.tsinghua.edu.cn/help/raspbian/</a></p>
+<p>阿里云镜像使用说明：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/raspbian">https://developer.aliyun.com/mirror/raspbian</a></p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改“/etc/apt/sources.list”内容，将原内容注释掉，加入以下内容</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main non-free contrib rpi</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ stretch main non-free contrib rpi</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里以清华镜像为例，我在清华给出的内容上，加上‘rpi’，与原内容保存一致，而且清华的镜像有‘rpi’文件夹的</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改“/etc/apt/sources.list.d/raspi.list”内容，将原内容注释掉，并加入以下内容</span></span><br><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ stretch main ui</span><br></pre></td></tr></table></figure>
-
 <p>修改完<code>/etc/apt/sources.list</code>和<code>/etc/apt/sources.list.d/raspi.list</code>后，执行<code>sudo apt-get update</code>命令，更新软件源列表</p>
 <h2 id="配置root密码"><a href="#配置root密码" class="headerlink" title="配置root密码"></a>配置root密码</h2><p>有时候可能需要用到root权限，进行一些操作，而新安装的系统<code>root</code>是默认密码的，需要配置了密码才能使用<code>root</code></p>
 <a id="more"></a>
 
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd root</span><br><span class="line"><span class="comment">## 然后输入当前用户的密码，Raspberry Pi默认用户是pi，默认密码是raspberry</span></span><br><span class="line"><span class="comment">## 在提示语Enter new UNIX password:后输入root的密码</span></span><br><span class="line"><span class="comment">## Retype new UNIX password:重复输入root密码</span></span><br><span class="line"><span class="comment">## passwd: password updated successfully 说明修改成功</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将用户切换到root</span></span><br><span class="line">su root</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装nginx和PHP"><a href="#安装nginx和PHP" class="headerlink" title="安装nginx和PHP"></a>安装nginx和PHP</h2><p>参考<a href="https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md" target="_blank" rel="noopener">官方文档</a>来安装nginx和PHP</p>
+<h2 id="安装nginx和PHP"><a href="#安装nginx和PHP" class="headerlink" title="安装nginx和PHP"></a>安装nginx和PHP</h2><p>参考<a target="_blank" rel="noopener" href="https://www.raspberrypi.org/documentation/remote-access/web-server/nginx.md">官方文档</a>来安装nginx和PHP</p>
 <ol>
 <li>安装nginx</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先更新一下软件包</span></span><br><span class="line">sudo apt update</span><br><span class="line"><span class="comment"># 然后先安装nginx</span></span><br><span class="line">sudo apt install nginx</span><br><span class="line"><span class="comment"># 安装完成后启动 nginx</span></span><br><span class="line"><span class="comment">## 使用方法 Usage: nginx &#123;start|stop|restart|reload|force-reload|status|configtest|rotate|upgrade&#125;</span></span><br><span class="line">sudo /etc/init.d/nginx start</span><br><span class="line"><span class="comment"># 查看设备的ip地址</span></span><br><span class="line">hostname -I</span><br></pre></td></tr></table></figure>
-
 <p>完成安装后，本地可以通过浏览器打开<code>http://localhost/</code>，同一网络下的其他设备可以通过浏览器打开设备IP地址访问到<code>Welcome to nginx</code>的网页</p>
 <p>nginx 默认的web文件存放在<code>/var/www/html</code>，可以修改或替换<code>/var/www/html/index.nginx-debian.html</code>，这是<code>Welcome to nginx</code>的网页内容 </p>
 <p>自定义配置nginx服务器，可以通过修改<code>/etc/nginx/sites-available/default</code>nginx的默认配置进行自定义</p>
@@ -258,8 +231,7 @@
 <li>安装PHP</li>
 </ol>
 <p>现在的系统安装PHP比以前初代的时候方便很多了</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装php</span></span><br><span class="line">sudo apt install php-fpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑nginx服务器配置，使其支持php</span></span><br><span class="line"><span class="built_in">cd</span> /etc/nginx</span><br><span class="line">sudo nano sites-enabled/default</span><br><span class="line"></span><br><span class="line"><span class="comment">## 找到下面👇这行</span></span><br><span class="line">index index.html index.htm index.nginx-debian.html;</span><br><span class="line"><span class="comment">## 修改成👇下面这样，即增加 index.php</span></span><br><span class="line">index index.php index.html index.htm index.nginx-debian.html;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开启PHP支持，找到下面👇这段代码</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># pass PHP scripts to FastCGI server</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># location ~ \.php$ &#123;</span></span><br><span class="line">	<span class="comment">#	include snippets/fastcgi-php.conf;</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment">#	# With php-fpm (or other unix sockets):</span></span><br><span class="line">	<span class="comment">#	fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;</span></span><br><span class="line">	<span class="comment">#	# With php-cgi (or other tcp sockets):</span></span><br><span class="line">	<span class="comment">#	fastcgi_pass 127.0.0.1:9000;</span></span><br><span class="line">	<span class="comment">#&#125;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">## 改成下面👇这样的</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># pass PHP scripts to FastCGI server</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	location ~ \.php$ &#123;</span><br><span class="line">		include snippets/fastcgi-php.conf;</span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment">#	# With php-fpm (or other unix sockets):</span></span><br><span class="line">		fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;</span><br><span class="line">	<span class="comment">#	# With php-cgi (or other tcp sockets):</span></span><br><span class="line">	<span class="comment">#	fastcgi_pass 127.0.0.1:9000;</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">## 注意别漏了'&#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启nginx服务器，使php配置生效</span></span><br><span class="line">sudo /etc/init.d/nginx reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在/var/www/html新建一个index.php</span></span><br><span class="line"><span class="built_in">cd</span> /var/www/html/</span><br><span class="line">sudo nano index.php</span><br><span class="line"></span><br><span class="line"><span class="comment">## index.php 里写入下面这句👇，保存就ok了</span></span><br><span class="line">&lt;?php <span class="built_in">echo</span> phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装php</span></span><br><span class="line">sudo apt install php-fpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编辑nginx服务器配置，使其支持php</span></span><br><span class="line"><span class="built_in">cd</span> /etc/nginx</span><br><span class="line">sudo nano sites-enabled/default</span><br><span class="line"></span><br><span class="line"><span class="comment">## 找到下面👇这行</span></span><br><span class="line">index index.html index.htm index.nginx-debian.html;</span><br><span class="line"><span class="comment">## 修改成👇下面这样，即增加 index.php</span></span><br><span class="line">index index.php index.html index.htm index.nginx-debian.html;</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开启PHP支持，找到下面👇这段代码</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># pass PHP scripts to FastCGI server</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment"># location ~ \.php$ &#123;</span></span><br><span class="line">	<span class="comment">#	include snippets/fastcgi-php.conf;</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment">#	# With php-fpm (or other unix sockets):</span></span><br><span class="line">	<span class="comment">#	fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;</span></span><br><span class="line">	<span class="comment">#	# With php-cgi (or other tcp sockets):</span></span><br><span class="line">	<span class="comment">#	fastcgi_pass 127.0.0.1:9000;</span></span><br><span class="line">	<span class="comment">#&#125;</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">## 改成下面👇这样的</span></span><br><span class="line"></span><br><span class="line">	<span class="comment"># pass PHP scripts to FastCGI server</span></span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	location ~ \.php$ &#123;</span><br><span class="line">		include snippets/fastcgi-php.conf;</span><br><span class="line">	<span class="comment">#</span></span><br><span class="line">	<span class="comment">#	# With php-fpm (or other unix sockets):</span></span><br><span class="line">		fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;</span><br><span class="line">	<span class="comment">#	# With php-cgi (or other tcp sockets):</span></span><br><span class="line">	<span class="comment">#	fastcgi_pass 127.0.0.1:9000;</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">## 注意别漏了&#x27;&#125;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启nginx服务器，使php配置生效</span></span><br><span class="line">sudo /etc/init.d/nginx reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在/var/www/html新建一个index.php</span></span><br><span class="line"><span class="built_in">cd</span> /var/www/html/</span><br><span class="line">sudo nano index.php</span><br><span class="line"></span><br><span class="line"><span class="comment">## index.php 里写入下面这句👇，保存就ok了</span></span><br><span class="line">&lt;?php <span class="built_in">echo</span> phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure>
 <p>然后通过浏览器打开<code>http://localhost/index.php</code>或者其他同一网络的设备通过浏览器打开<code>http://ip_address/index.php</code>(ip_address=树莓派的ip地址)</p>
 <p>如果看到下图的php的版本信息就成功开启PHP服务了</p>
 <img src="/2020/03/07/Raspberry-Pi-%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AC%94%E8%AE%B0/C904274F70E5DF36DBE5F38E6742349B.png" class="">
@@ -268,18 +240,14 @@
 <p>注意，要检查php服务是否启动，如果php服务未启动也无法看到正常信息</p>
 </blockquote>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查php状态(版本根据自己的填写，或者用tab补全)</span></span><br><span class="line">sudo /etc/init.d/php7.0-fpm status</span><br></pre></td></tr></table></figure>
-
 <ol start="3">
 <li>开机启动nginx和php服务</li>
 </ol>
 <p>虽然nginx和php都安装配置好了，但是如果设备重启了，还是需要手工将nginx和php服务启动。这时候，就需要利用<code>systemctl</code>来配置开机启动服务了</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先把用户切换到root</span></span><br><span class="line"><span class="comment"># 开机启动nginx</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机启动php</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> php7.0-fpm</span><br><span class="line"></span><br><span class="line"><span class="comment">## 如果都没有报错就成功了，可以重启设备看看是否能开机启动nginx和php服务</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h2><p>因为<code>2018-11-13-raspbian-stretch</code>自带有java，所以系统本身就有jdk环境了，可以直接安装Tomcat，不然要先安装jdk环境。</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看Java版本</span></span><br><span class="line">java -version</span><br><span class="line"><span class="comment">## java version "1.8.0_65"</span></span><br><span class="line"><span class="comment">## Java(TM) SE Runtime Environment (build 1.8.0_65-b17)</span></span><br><span class="line"><span class="comment">## Java HotSpot(TM) Client VM (build 25.65-b01, mixed mode)</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看Java版本</span></span><br><span class="line">java -version</span><br><span class="line"><span class="comment">## java version &quot;1.8.0_65&quot;</span></span><br><span class="line"><span class="comment">## Java(TM) SE Runtime Environment (build 1.8.0_65-b17)</span></span><br><span class="line"><span class="comment">## Java HotSpot(TM) Client VM (build 25.65-b01, mixed mode) </span></span><br></pre></td></tr></table></figure>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新apt-get源</span></span><br><span class="line">sudo apt-get update</span><br><span class="line"><span class="comment"># 升级软件包</span></span><br><span class="line">sudo apt-get upgrade</span><br><span class="line"><span class="comment"># 安装Tomcat</span></span><br><span class="line">sudo apt-get install tomcat8</span><br><span class="line"><span class="comment"># 检查Tomcat状态</span></span><br><span class="line">sudo /etc/init.d/tomcat8 status</span><br><span class="line"><span class="comment"># 如果Tomcat未启动，通过👇这命令启动Tomcat</span></span><br><span class="line">sudo /etc/init.d/tomcat8 start</span><br></pre></td></tr></table></figure>
-
 <p>安装好后，就可以通过<code>http://localhost:8080</code>或者其他同一网络的设备通过浏览器打开<code>http://ip_address:8080</code>(ip_address=树莓派的ip地址) 查看</p>
 <p>看到这个👇页面就说明Tomcat成功安装并运行了</p>
 <img src="/2020/03/07/Raspberry-Pi-%E6%A0%91%E8%8E%93%E6%B4%BE%E7%AC%94%E8%AE%B0/F317DBA4944D8586149943BCBCE15DE7.png" class="">
@@ -289,10 +257,8 @@
 </blockquote>
 <p>先查看一下端口情况</p>
 <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查端口占用情况，需要用sudo才有权限显示完整信息</span></span><br><span class="line">sudo netstat -tunlp | grep 8080</span><br><span class="line"><span class="comment"># 也可以用lsof查看端口占用情况</span></span><br><span class="line"><span class="comment">## 由于系统本身没有lsof，需要安装</span></span><br><span class="line">sudo apt-get install lsof</span><br><span class="line"><span class="comment">## 用lsof查看端口</span></span><br><span class="line">sudo lsof -i:8080</span><br></pre></td></tr></table></figure>
-
 <p>修改Tomcat的端口(由于有其他服务需要在8080上运行，所以选择修改Tomcat的端口)</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改Tomcat的配置</span></span><br><span class="line">sudo nano /etc/tomcat8/server.xml</span><br><span class="line"><span class="comment">## 找到以下代码</span></span><br><span class="line">    &lt;Connector port=<span class="string">"8080"</span> protocol=<span class="string">"HTTP/1.1"</span></span><br><span class="line">              connectionTimeout=<span class="string">"20000"</span></span><br><span class="line">               redirectPort=<span class="string">"8443"</span> /&gt;</span><br><span class="line"><span class="comment">## 将 port="8080",改成其他端口号，例如改成 port="8888"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启Tomcat使配置生效</span></span><br><span class="line">sudo /etc/init.d/tomcat8 restart</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改Tomcat的配置</span></span><br><span class="line">sudo nano /etc/tomcat8/server.xml</span><br><span class="line"><span class="comment">## 找到以下代码</span></span><br><span class="line">    &lt;Connector port=<span class="string">&quot;8080&quot;</span> protocol=<span class="string">&quot;HTTP/1.1&quot;</span></span><br><span class="line">              connectionTimeout=<span class="string">&quot;20000&quot;</span></span><br><span class="line">               redirectPort=<span class="string">&quot;8443&quot;</span> /&gt;</span><br><span class="line"><span class="comment">## 将 port=&quot;8080&quot;,改成其他端口号，例如改成 port=&quot;8888&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启Tomcat使配置生效</span></span><br><span class="line">sudo /etc/init.d/tomcat8 restart</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -323,11 +289,32 @@
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -352,7 +339,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get-配置国内镜像"><span class="nav-number">1.</span> <span class="nav-text">apt-get 配置国内镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置root密码"><span class="nav-number">2.</span> <span class="nav-text">配置root密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nginx和PHP"><span class="nav-number">3.</span> <span class="nav-text">安装nginx和PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Tomcat"><span class="nav-number">4.</span> <span class="nav-text">安装Tomcat</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#apt-get-%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="nav-number">1.</span> <span class="nav-text">apt-get 配置国内镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEroot%E5%AF%86%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">配置root密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85nginx%E5%92%8CPHP"><span class="nav-number">3.</span> <span class="nav-text">安装nginx和PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Tomcat"><span class="nav-number">4.</span> <span class="nav-text">安装Tomcat</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,17 +359,12 @@
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="fa fa-fw fa-address-card-o"></i>掘金</a>
+        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="far fa-address-card fa-fw"></i>掘金</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle-o"></i>关于我</a>
+        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="far fa-user-circle fa-fw"></i>关于我</a>
       </span>
   </div>
 
@@ -402,19 +384,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CoderSamz</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
         
@@ -446,7 +427,6 @@
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -470,7 +450,6 @@
 
 
   
-
 
 
 

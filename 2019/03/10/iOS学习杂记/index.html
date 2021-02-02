@@ -4,48 +4,21 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="雲端之上" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="iOS学习杂记在iOS路上不断学习，修修补补的自己的知识，随手记录一下 OC 点语法的本质 点语法本质依然是方法调用，即消息发送的方式 当使用点语法时，编译器其实会转换成，消息发送的方式 OC的点语法不过是一种语法糖，其本质没变  1234567&#x2F;*Student 类声明了一个name属性和一个对象方法study*&#x2F;Student * student &#x3D; [[Student alloc] init">
 <meta property="og:type" content="article">
@@ -66,10 +39,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -112,17 +84,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">雲端之上</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -130,30 +91,48 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">雲端之上</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -169,14 +148,13 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/10/iOS%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -196,7 +174,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -227,23 +205,18 @@
 <li>当使用点语法时，编译器其实会转换成，消息发送的方式</li>
 <li>OC的点语法不过是一种语法糖，其本质没变</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Student 类声明了一个name属性和一个对象方法study</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Student * student = [[Student alloc] init];</span><br><span class="line">student.name = <span class="string">@"Jack"</span>; <span class="comment">// 这句相当于[student setName:@"Jack"];</span></span><br><span class="line"><span class="built_in">NSString</span> * studentName = student.name; <span class="comment">// 这句相当于 NSString * studentName = [student name];</span></span><br><span class="line">student.study; <span class="comment">// 相当于 [student study];</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Student 类声明了一个name属性和一个对象方法study</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">Student * student = [[Student alloc] init];</span><br><span class="line">student.name = <span class="string">@&quot;Jack&quot;</span>; <span class="comment">// 这句相当于[student setName:@&quot;Jack&quot;];</span></span><br><span class="line"><span class="built_in">NSString</span> * studentName = student.name; <span class="comment">// 这句相当于 NSString * studentName = [student name];</span></span><br><span class="line">student.study; <span class="comment">// 相当于 [student study];</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是一个错误写法，会产生死循环</span></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name &#123;</span><br><span class="line">    <span class="keyword">self</span>.name = name; <span class="comment">// 相当于[self setName:name];</span></span><br><span class="line">    <span class="comment">// 所以就会一直递归调用setName:方法，导致死循环了</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这也是一个错误写法，原因也是一样，会一直递归调用name方法，导致死循环</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)name &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>.name; <span class="comment">// 相当于return [self name];</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>注意，如果是struct，那么点语法就是对成员变量的直接访问，编译器并不会转换成方法调用<br>struct访问成员变量的点语法，是C语言的点语法，和OC的点语法有所区别</p>
 </blockquote>
 <a id="more"></a>
 
-<h3 id="NSLog打印对象的本质——description方法"><a href="#NSLog打印对象的本质——description方法" class="headerlink" title="NSLog打印对象的本质——description方法"></a>NSLog打印对象的本质——description方法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设有个student对象(继承于NSObject)</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,student); <span class="comment">// 相当于NSLog(@"%@",[student description])</span></span><br></pre></td></tr></table></figure>
-
+<h3 id="NSLog打印对象的本质——description方法"><a href="#NSLog打印对象的本质——description方法" class="headerlink" title="NSLog打印对象的本质——description方法"></a>NSLog打印对象的本质——description方法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设有个student对象(继承于NSObject)</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,student); <span class="comment">// 相当于NSLog(@&quot;%@&quot;,[student description])</span></span><br></pre></td></tr></table></figure>
 <p>所以，我们可以通过重写<code>-description</code>方法来实现自定义打印内容，而且除了对象方法，还有类方法<code>+description</code></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设有个Student 类</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[Student description]);</span><br><span class="line"><span class="comment">// 输出结果：Student</span></span><br><span class="line"><span class="comment">// 类方法的输出是类名</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 假设有个Student 类</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,[Student description]);</span><br><span class="line"><span class="comment">// 输出结果：Student</span></span><br><span class="line"><span class="comment">// 类方法的输出是类名</span></span><br></pre></td></tr></table></figure>
 <p>通过重写<code>-description</code>，<code>+description</code>可以自定义输出内容</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在description里使用NSLog打印，可能会产生死循环</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)description &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="keyword">self</span>);</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> description];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不过在Xcode9.3上测试的结果，description里的NSLog只会执行三次</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 输出结果(Xcode9.3)</span></span><br><span class="line"><span class="comment">    description -- &lt;Student: 0x60800000f240&gt;</span></span><br><span class="line"><span class="comment">    description -- &lt;Student: 0x60800000f240&gt;</span></span><br><span class="line"><span class="comment">    description -- &lt;Student: 0x60800000f240&gt;</span></span><br><span class="line"><span class="comment">    main -- &lt;Student: 0x60800000f240&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在description里使用NSLog打印，可能会产生死循环</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)description &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;%@&quot;</span>,<span class="keyword">self</span>);</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">super</span> description];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不过在Xcode9.3上测试的结果，description里的NSLog只会执行三次</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 输出结果(Xcode9.3)</span></span><br><span class="line"><span class="comment">    description -- &lt;Student: 0x60800000f240&gt;</span></span><br><span class="line"><span class="comment">    description -- &lt;Student: 0x60800000f240&gt;</span></span><br><span class="line"><span class="comment">    description -- &lt;Student: 0x60800000f240&gt;</span></span><br><span class="line"><span class="comment">    main -- &lt;Student: 0x60800000f240&gt;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -277,11 +250,32 @@
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -306,7 +300,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS学习杂记"><span class="nav-number">1.</span> <span class="nav-text">iOS学习杂记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OC-点语法的本质"><span class="nav-number">1.0.1.</span> <span class="nav-text">OC 点语法的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSLog打印对象的本质——description方法"><span class="nav-number">1.0.2.</span> <span class="nav-text">NSLog打印对象的本质——description方法</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS%E5%AD%A6%E4%B9%A0%E6%9D%82%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">iOS学习杂记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#OC-%E7%82%B9%E8%AF%AD%E6%B3%95%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="nav-number">1.0.1.</span> <span class="nav-text">OC 点语法的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSLog%E6%89%93%E5%8D%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%9C%AC%E8%B4%A8%E2%80%94%E2%80%94description%E6%96%B9%E6%B3%95"><span class="nav-number">1.0.2.</span> <span class="nav-text">NSLog打印对象的本质——description方法</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -326,17 +320,12 @@
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="fa fa-fw fa-address-card-o"></i>掘金</a>
+        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="far fa-address-card fa-fw"></i>掘金</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle-o"></i>关于我</a>
+        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="far fa-user-circle fa-fw"></i>关于我</a>
       </span>
   </div>
 
@@ -356,19 +345,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CoderSamz</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
         
@@ -400,7 +388,6 @@
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -424,7 +411,6 @@
 
 
   
-
 
 
 

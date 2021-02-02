@@ -4,48 +4,21 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.0">
+<meta name="generator" content="Hexo 5.3.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
-  <link rel="alternate" href="/atom.xml" title="雲端之上" type="application/atom+xml">
 
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://yoursite.com').hostname,
-    root: '/',
-    scheme: 'Muse',
-    version: '7.5.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    sidebarPadding: 40
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
 
   <meta name="description" content="海军系列 第1期 辽宁号航母 第2期 055驱逐舰 第3期 054A护卫舰 第4期 071两栖登陆舰 第5期 核潜艇 第6期 039A型潜艇 第7期 歼-15舰载机 第8期 高新6号海上巡逻机 第9期 中国海上力量  陆军系列 第10期 99A主战坦克 第11期 04A步兵战车 第12期 PHL-03火箭炮 第13期 PLZ05自行榴弹炮 第14期 直-10武装直升机 第15期 中国地面力量  空">
 <meta property="og:type" content="article">
@@ -66,10 +39,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -112,17 +84,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">雲端之上</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -130,30 +91,48 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">雲端之上</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
   </ul>
-
 </nav>
+
+
+
+
 </div>
     </header>
 
@@ -169,14 +148,13 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content post posts-expand">
             
 
-  <div class="posts-expand">
-      
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/28/%E5%9B%BD%E4%B9%8B%E9%87%8D%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -196,7 +174,7 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
@@ -222,36 +200,36 @@
 
       
         <h2 id="海军系列"><a href="#海军系列" class="headerlink" title="海军系列"></a>海军系列</h2><ul>
-<li><a href="https://www.bilibili.com/video/BV1Tt411w79o" target="_blank" rel="noopener">第1期 辽宁号航母</a></li>
-<li><a href="https://www.bilibili.com/video/BV1qt411M7hd" target="_blank" rel="noopener">第2期 055驱逐舰</a></li>
-<li><a href="https://www.bilibili.com/video/BV1bt411N7VB" target="_blank" rel="noopener">第3期 054A护卫舰</a></li>
-<li><a href="https://www.bilibili.com/video/BV184411Q7wG" target="_blank" rel="noopener">第4期 071两栖登陆舰</a></li>
-<li><a href="https://www.bilibili.com/video/BV1q4411U7nM" target="_blank" rel="noopener">第5期 核潜艇</a></li>
-<li><a href="https://www.bilibili.com/video/BV1c4411Z7Cs" target="_blank" rel="noopener">第6期 039A型潜艇</a></li>
-<li><a href="https://www.bilibili.com/video/BV174411R7dR" target="_blank" rel="noopener">第7期 歼-15舰载机</a></li>
-<li><a href="https://www.bilibili.com/video/BV1C441167xm" target="_blank" rel="noopener">第8期 高新6号海上巡逻机</a></li>
-<li><a href="https://www.bilibili.com/video/BV1k4411q7Pv" target="_blank" rel="noopener">第9期 中国海上力量</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Tt411w79o">第1期 辽宁号航母</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qt411M7hd">第2期 055驱逐舰</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bt411N7VB">第3期 054A护卫舰</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV184411Q7wG">第4期 071两栖登陆舰</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q4411U7nM">第5期 核潜艇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1c4411Z7Cs">第6期 039A型潜艇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV174411R7dR">第7期 歼-15舰载机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1C441167xm">第8期 高新6号海上巡逻机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1k4411q7Pv">第9期 中国海上力量</a></li>
 </ul>
 <h2 id="陆军系列"><a href="#陆军系列" class="headerlink" title="陆军系列"></a>陆军系列</h2><ul>
-<li><a href="https://www.bilibili.com/video/BV1b441117Kb" target="_blank" rel="noopener">第10期 99A主战坦克</a></li>
-<li><a href="https://www.bilibili.com/video/BV1e4411y7TC" target="_blank" rel="noopener">第11期 04A步兵战车</a></li>
-<li><a href="https://www.bilibili.com/video/BV1YJ411N7X1" target="_blank" rel="noopener">第12期 PHL-03火箭炮</a></li>
-<li><a href="https://www.bilibili.com/video/BV1zJ411P7u4" target="_blank" rel="noopener">第13期 PLZ05自行榴弹炮</a></li>
-<li><a href="https://www.bilibili.com/video/BV1DJ411c7jt" target="_blank" rel="noopener">第14期 直-10武装直升机</a></li>
-<li><a href="https://www.bilibili.com/video/BV17J41137dF" target="_blank" rel="noopener">第15期 中国地面力量</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1b441117Kb">第10期 99A主战坦克</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1e4411y7TC">第11期 04A步兵战车</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1YJ411N7X1">第12期 PHL-03火箭炮</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1zJ411P7u4">第13期 PLZ05自行榴弹炮</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1DJ411c7jt">第14期 直-10武装直升机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17J41137dF">第15期 中国地面力量</a></li>
 </ul>
 <h2 id="空军系列"><a href="#空军系列" class="headerlink" title="空军系列"></a>空军系列</h2><ul>
-<li><a href="https://www.bilibili.com/video/BV18J411M7de" target="_blank" rel="noopener">第16期 歼-20战斗机</a></li>
-<li><a href="https://www.bilibili.com/video/BV1LJ411T788" target="_blank" rel="noopener">第17期 歼-16多用途战斗机</a></li>
-<li><a href="https://www.bilibili.com/video/BV1pE411R7bs" target="_blank" rel="noopener">第18期 轰-6K轰炸机</a></li>
-<li><a href="https://www.bilibili.com/video/BV1wE411X7Kh" target="_blank" rel="noopener">第19期 空警-500预警机</a></li>
-<li><a href="https://www.bilibili.com/video/BV1gJ411c714" target="_blank" rel="noopener">第20期 运-20运输机</a></li>
-<li><a href="https://www.bilibili.com/video/BV1BE411o7N3" target="_blank" rel="noopener">第21期 红旗-9防空导弹</a></li>
-<li><a href="https://www.bilibili.com/video/BV1NE411o7Se" target="_blank" rel="noopener">第22期 中国空中力量</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18J411M7de">第16期 歼-20战斗机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1LJ411T788">第17期 歼-16多用途战斗机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pE411R7bs">第18期 轰-6K轰炸机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wE411X7Kh">第19期 空警-500预警机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gJ411c714">第20期 运-20运输机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BE411o7N3">第21期 红旗-9防空导弹</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1NE411o7Se">第22期 中国空中力量</a></li>
 </ul>
 <h2 id="特别篇"><a href="#特别篇" class="headerlink" title="特别篇"></a>特别篇</h2><ul>
-<li><a href="https://www.bilibili.com/video/BV13E411y7jc" target="_blank" rel="noopener">第23期 东风-17高超音速导弹</a></li>
-<li><a href="https://www.bilibili.com/video/BV1dE4116721" target="_blank" rel="noopener">第24期 无侦-8无人机</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13E411y7jc">第23期 东风-17高超音速导弹</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dE4116721">第24期 无侦-8无人机</a></li>
 </ul>
 
     </div>
@@ -283,11 +261,32 @@
   
   
 
-  </div>
 
 
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
@@ -312,7 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#海军系列"><span class="nav-number">1.</span> <span class="nav-text">海军系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#陆军系列"><span class="nav-number">2.</span> <span class="nav-text">陆军系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空军系列"><span class="nav-number">3.</span> <span class="nav-text">空军系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特别篇"><span class="nav-number">4.</span> <span class="nav-text">特别篇</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%B7%E5%86%9B%E7%B3%BB%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">海军系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%86%E5%86%9B%E7%B3%BB%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">陆军系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E5%86%9B%E7%B3%BB%E5%88%97"><span class="nav-number">3.</span> <span class="nav-text">空军系列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E5%88%AB%E7%AF%87"><span class="nav-number">4.</span> <span class="nav-text">特别篇</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -332,17 +331,12 @@
       </div>
   </nav>
 </div>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="fa fa-fw fa-address-card-o"></i>掘金</a>
+        <a href="https://juejin.im/user/57aa83d5a34131206cc9a0e2/posts" title="掘金 → https:&#x2F;&#x2F;juejin.im&#x2F;user&#x2F;57aa83d5a34131206cc9a0e2&#x2F;posts" rel="noopener" target="_blank"><i class="far fa-address-card fa-fw"></i>掘金</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="fa fa-fw fa-user-circle-o"></i>关于我</a>
+        <a href="https://codersamz.github.io/about" title="关于我 → https:&#x2F;&#x2F;codersamz.github.io&#x2F;about" rel="noopener" target="_blank"><i class="far fa-user-circle fa-fw"></i>关于我</a>
       </span>
   </div>
 
@@ -362,19 +356,18 @@
       <div class="footer-inner">
         
 
+        
+
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CoderSamz</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
         
@@ -406,7 +399,6 @@
 
 
 
-        
       </div>
     </footer>
   </div>
@@ -430,7 +422,6 @@
 
 
   
-
 
 
 
